@@ -16,7 +16,7 @@ $(EXEC): $(OBJ_EXE)
 	@$(CC) -o $@ $^ $(LIB_EXE)
 
 $(TARGET_LIB): $(OBJ_LIB)
-	$(CC) -o $@ $^ $(LDFLAGS)
+	@$(CC) -o $@ $^ $(LDFLAGS)
 
 %.o: %.c
 	@$(CC) -o $@ -c $< $(CFLAGS)
@@ -27,7 +27,8 @@ clean:
 mrproper: clean
 	@rm -f $(EXEC) $(TARGET_LIB)
 
-install: $(EXEC)
+install: $(TARGET_LIB) $(EXEC)
 	@install -d $(DESTDIR)$(PREFIX)/bin/
 	@install -m 755 $(EXEC) $(DESTDIR)$(PREFIX)/bin/
-
+	@install -d $(DESTDIR)$(PREFIX)/lib/
+	@install -m 644 $(TARGET_LIB) $(DESTDIR)$(PREFIX)/lib/
