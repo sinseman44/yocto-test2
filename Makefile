@@ -12,7 +12,7 @@ PREFIX ?= /usr/local
 
 all: $(TARGET_LIB) $(EXEC)
 
-$(EXEC): $(OBJ_EXE)
+$(EXEC): $(TARGET_LIB) $(OBJ_EXE)
 	@$(CC) -o $@ $^ $(LIB_EXE)
 
 $(TARGET_LIB): $(OBJ_LIB)
