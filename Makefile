@@ -13,7 +13,7 @@ PREFIX ?= /usr/local
 all: $(TARGET_LIB) $(EXEC)
 
 $(EXEC): $(TARGET_LIB) $(OBJ_EXE)
-	@$(CC) -o $@ $^ $(LIB_EXE)
+	@$(CC) -o $@ $^ $(LIB_EXE) $(LDFLAGS)
 
 $(TARGET_LIB): $(OBJ_LIB)
 	@$(CC) -o $@ $^ -shared $(LDFLAGS)
