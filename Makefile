@@ -1,6 +1,6 @@
 CC ?= gcc
 CFLAGS ?= -fPIC -Wall -Wextra -O2
-LDFLAGS ?= -shared
+LDFLAGS ?=
 EXEC=hello2
 TARGET_LIB=libmyworld.so
 SRC_EXE=src/hello.c src/world.h
@@ -16,7 +16,7 @@ $(EXEC): $(TARGET_LIB) $(OBJ_EXE)
 	@$(CC) -o $@ $^ $(LIB_EXE)
 
 $(TARGET_LIB): $(OBJ_LIB)
-	@$(CC) -o $@ $^ $(LDFLAGS)
+	@$(CC) -o $@ $^ -shared $(LDFLAGS)
 
 %.o: %.c
 	@$(CC) -o $@ -c $< $(CFLAGS)
