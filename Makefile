@@ -14,6 +14,8 @@ SRC_LIB=src/world.c src/world.h
 OBJ_LIB=$(SRC_LIB:.c=.o)
 PREFIX ?= /usr/local
 
+.PHONY: all mrproper clean install
+
 all: $(TARGET_LIB) $(EXEC)
 
 $(EXEC): $(TARGET_LIB) $(OBJ_EXE)
