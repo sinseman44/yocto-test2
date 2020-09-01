@@ -40,3 +40,5 @@ install: $(TARGET_LIB) $(EXEC)
 	@install -m 644 $(TARGET_LIB) $(DESTDIR)$(PREFIX)/lib/
 	@ln -s $(TARGET_LIB) $(DESTDIR)$(PREFIX)/lib/$(LIBNAME).$(VERS_MAJ)
 	@ln -s $(LIBNAME).$(VERS_MAJ) $(DESTDIR)$(PREFIX)/lib/$(LIBNAME)
+	@install -d $(DESTDIR)$(PREFIX)/include/
+	@install -m 644 src/world.h $(DESTDIR)$(PREFIX)/include/
