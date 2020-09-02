@@ -22,7 +22,7 @@ $(EXEC): $(TARGET_LIB) $(OBJ_EXE)
 	@$(CC) -o $@ $^ $(TARGET_LIB) $(LDFLAGS)
 
 $(TARGET_LIB): $(OBJ_LIB)
-	@$(CC) -o $@ $^ -shared $(LDFLAGS)
+	@$(CC) -o $@ $^ -shared $(LDFLAGS) -Wl,-soname,$(LIBNAME).$(VERS_MAJ)
 
 %.o: %.c
 	@$(CC) -o $@ -c $< $(CFLAGS)
