@@ -19,10 +19,10 @@ PREFIX ?= /usr/local
 all: $(TARGET_LIB) $(EXEC)
 
 $(EXEC): $(TARGET_LIB) $(OBJ_EXE)
-	@$(CC) -o $@ $^ $(TARGET_LIB) $(LDFLAGS)
+	@$(CC) -o $@ $^ -pthread $(TARGET_LIB) $(LDFLAGS)
 
 $(TARGET_LIB): $(OBJ_LIB)
-	@$(CC) -o $@ $^ -shared $(LDFLAGS) -Wl,-soname,$(LIBNAME).$(VERS_MAJ)
+	@$(CC) -o $@ $^ -shared -pthread $(LDFLAGS) -Wl,-soname,$(LIBNAME).$(VERS_MAJ)
 
 %.o: %.c
 	@$(CC) -o $@ -c $< $(CFLAGS)
