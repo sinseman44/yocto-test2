@@ -5,8 +5,7 @@
 
 #include "world.h"
 
-int world(int len, char*buff) {
-	pthread_mutexattr_settype(NULL, 0);
+int __world(int len, char*buff) {
 	if((len > 0) && (buff != NULL)) {
 		snprintf(buff, (size_t)len, "ceci est mon monde ...");
 	}
