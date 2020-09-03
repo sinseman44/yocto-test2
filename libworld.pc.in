@@ -5,7 +5,6 @@ includedir=${prefix}/include
 Name: libworld
 Description: World library
 Version: @VERSION@
-Requires.private: libsystemd, libunwind-generic
 Libs: -L${libdir} -lworld -ldl
 Libs.private: -ldl
 Cflags: -I${includedir}/libworld
