@@ -5,7 +5,7 @@ includedir=${prefix}/include
 Name: libworld
 Description: World library
 Version: @VERSION@
-Libs: -L${libdir} -lworld -ldl
+Libs: -L${libdir} -lmyworld -ldl
 Libs.private: -ldl
 Cflags: -I${includedir}/libworld
 
